@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projects } from '@/app/data/projects';
 import styles from './Work.module.css';
-import BeforeAfter from '../before-after/BeforeAfter';
+import BeforeAfter from '../../components/before-after/BeforeAfter';
 
 gsap.registerPlugin(ScrollTrigger);
 

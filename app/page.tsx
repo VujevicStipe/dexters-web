@@ -1,4 +1,4 @@
-import Work from "./components/work/Work";
+import Work from "./sections/work/Work";
 import Hero from "./sections/hero/Hero";
 
 
