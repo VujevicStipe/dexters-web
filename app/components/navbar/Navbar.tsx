@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import TextPressure from '../text-pressure/TextPressure';
 import styles from './Navbar.module.css';
 
@@ -25,6 +25,7 @@ interface DropdownItem {
 }
 
 function Dropdown({ items, desc }: { items: DropdownItem[]; desc: string }) {
+
   return (
     <div className={styles.dropdown}>
       <div className={styles.dropdownInner}>
@@ -57,6 +58,14 @@ export default function Navbar() {
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   const open = (name: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setActiveMenu(name);
@@ -72,8 +81,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={styles.nav}>
-        <div className={styles.card}>
+      <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ''}`}>
+        <div className={`${styles.card} ${scrolled ? styles.cardScrolled : ''}`}>
 
           <a href="/" className={styles.logo}>
             <TextPressure
