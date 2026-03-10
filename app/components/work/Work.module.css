@@ -1,0 +1,263 @@
+.section {
+  width: 100%;
+  background: #0a0f0a;
+  overflow: hidden;
+}
+
+.label {
+  display: none;
+}
+
+.header {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 100px 80px 60px;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin: 0;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 50px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.images {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  height: calc(65vw * (860 / 1440));
+}
+
+.imgMain {
+  position: absolute;
+  top: 0;
+  left: 12%;
+  width: 65%;
+  aspect-ratio: 1440 / 860;
+  border-radius: 14px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.imgSecondary {
+  position: relative;
+  flex: 0 0 auto;
+  width: 60%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: -140px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.imgFeatureImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  display: block;
+}
+
+.featureVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.imgSecondary:hover .featureVideo {
+  opacity: 1;
+}
+
+.imgPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+}
+
+.info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1280px;
+  padding: 40px 40px 0px 40px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.infoRight {
+  flex: 0 0 auto;
+  max-width: 480px;
+}
+
+.projectTitle {
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
+}
+
+.projectDesc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.7;
+  margin: 0 0 24px;
+  max-width: 520px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 2px;
+  transition: border-color 0.2s, gap 0.2s, color 0.2s;
+}
+
+.cta:hover {
+  border-color: #1ee600;
+  color: #1ee600;
+  gap: 12px;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 80px 48px 48px;
+  }
+
+  .container {
+    gap: 120px;
+  }
+
+  .images {
+    height: calc(75vw * (860 / 1440));
+  }
+
+  .imgMain {
+    left: 4%;
+    width: 75%;
+  }
+
+  .info {
+    padding: 0 28px;
+    gap: 24px;
+  }
+
+  .infoRight {
+    max-width: 320px;
+  }
+
+  .imgSecondary {
+    width: 54%;
+    margin-top: -55px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 60px 24px 40px;
+  }
+
+  .container {
+    gap: 80px;
+  }
+
+  .images {
+    position: relative;
+    width: 100%;
+    left: 0;
+    transform: none;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .imgMain {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 95%;
+    aspect-ratio: 1440 / 860;
+    height: auto;
+  }
+
+  .imgSecondary {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .info {
+    padding: 0 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .infoRight {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .projectDesc {
+    font-size: 14px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .images {
+    height: calc(95vw * (860 / 1440));
+  }
+
+  .imgMain {
+    width: 95%;
+  }
+
+  .imgSecondary {
+    height: 180px;
+  }
+
+  .container {
+    gap: 60px;
+  }
+}
